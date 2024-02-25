@@ -11,9 +11,9 @@ const isValid = (username)=>{ //returns boolean
       return user.username === username
     });
     if(userswithsamename.length > 0){
-      return true;
-    } else {
       return false;
+    } else {
+      return true;
     }
 }
 
