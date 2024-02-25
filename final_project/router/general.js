@@ -30,20 +30,14 @@ public_users.post("/register", (req,res) => {
 // Get the book list available in the shop
 public_users.get('/',function (req, res) {
     //Write your code here
-    let myPromise = new Promise((resolve,reject) => {
-        try {
-            res.send(JSON.stringify(books,null,4));
-            resolve("Response was sent.")
-        } catch(err) {
-            reject(err)
-        }
-    });
+    const my_res = async()=>{
+        await res.send(JSON.stringify(books,null,4));
+        console.log("Response was sent.");
+    }
     
-    myPromise.then(
-        (successMessage) => console.log(successMessage),
-        (err) => console.log("Error in responding.")
-    );
-    
+    console.log("Start responding...")
+    my_res().catch(err=>console.log("Error in responding."));
+      
 });
 
 
